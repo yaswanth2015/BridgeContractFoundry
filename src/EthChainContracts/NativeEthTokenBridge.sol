@@ -18,6 +18,7 @@ contract NativeEthTokenBridge is Ownable {
     /** 
     * @param value amount deposited by the user
     * @dev used by the user to deposit amount into bridge account address
+    * @dev Before calling this function user needs to allow this contractor to spend token amount using allowance function of token contract
     */
     function deposit(uint256 value) public {
         IERC20(tokenAddress).transferFrom(_msgSender(), address(this), value);
