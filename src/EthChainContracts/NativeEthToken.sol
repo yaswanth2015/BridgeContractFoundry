@@ -9,7 +9,7 @@ contract NativeEthToken is ERC20, Ownable {
 
     }
 
-    function mint(address _to, uint256 value) public {
+    function mint(address _to, uint256 value) onlyOwner public {
         _mint(_to, value);
     }
 }
