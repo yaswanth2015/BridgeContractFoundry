@@ -31,7 +31,7 @@ contract NativeEthTokenBridge is Ownable {
      * @dev only owner will trigger the contract to witdraw amount from bridge account address and send it to the receiver account
      */
 
-    function withDraw(address receiver, uint256 amount) public onlyOwner() {
+    function sendToUser(address receiver, uint256 amount) public onlyOwner() {
         IERC20(tokenAddress).transfer(receiver, amount);
         emit ConvertedToNativeToken(receiver, amount, block.timestamp);
     }
